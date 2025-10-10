@@ -67,6 +67,18 @@
             <div class="text-center mt-4">
                 <a href="{% url 'warga-list' %}" class="btn btn-back px-4 py-2">← Kembali ke Daftar Warga</a>
             </div>
+            <hr>
+            <h2>Daftar Pengaduan oleh {{ object.nama_lengkap }}</h2>
+            <ul>
+                {% for aduan in object.pengaduan.all %}
+                    <li>
+                        <strong>{{ aduan.judul }}</strong> (Status: {{ aduan.get_status_display }})
+                        <p>{{ aduan.deskripsi }}</p>
+                    </li>
+                {% empty %}
+                    <li>Warga ini belum pernah membuat pengaduan.</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
