@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Daftar Warga</h1>
+    <a href="{% url 'warga-tambah' %}">Tambah Warga Baru</a>
     <ul>
         {% for warga in object_list %}
             <li><a href="{% url 'warga-detail' warga.pk %}">{{ warga.nama_lengkap }} - NIK: {{ warga.nik }}</a></li>
