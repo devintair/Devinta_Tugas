@@ -32,6 +32,12 @@
         .btn-submit:hover {
             background-color: #218838;
         }
+        .btn-warning {
+        background-color: #ffc107;
+        border-radius: 25px;
+        font-weight: 600;
+        }
+
     </style>
 </head>
 <body>
@@ -43,7 +49,13 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="text-center mt-3">
+                    {% if form.instance.pk %}
+                    <!-- Kalau mode edit -->
+                    <button type="submit" class="btn btn-warning px-4 py-2 text-white">Update</button>
+                    {% else %}
+                    <!-- Kalau mode tambah -->
                     <button type="submit" class="btn btn-submit px-4 py-2">Simpan</button>
+                    {% endif %}
                     <a href="{% url 'pengaduan-list' %}" class="btn btn-secondary px-4 py-2">Batal</a>
                 </div>
             </form>

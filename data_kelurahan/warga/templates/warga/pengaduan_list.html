@@ -47,6 +47,7 @@
                     <th>Judul Pengaduan</th>
                     <th>Nama Pelapor</th>
                     <th>Tanggal Lapor</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -56,6 +57,10 @@
                     <td class="judul">{{ pengaduan.judul }}</td>
                     <td>{{ pengaduan.pelapor.nama_lengkap }}</td>
                     <td>{{ pengaduan.tanggal_lapor|date:"d M Y H:i" }}</td>
+                    <td>
+                        <a href="{% url 'pengaduan-edit' pengaduan.pk %}" class="btn btn-edit btn-sm me-2">✏️ Edit</a>
+                        <a href="{% url 'pengaduan-hapus' pengaduan.pk %}" class="btn btn-delete btn-sm">🗑️ Hapus</a>
+                    </td>
                 </tr>
                 {% empty %}
                 <tr>

@@ -32,6 +32,20 @@
         .btn-back:hover {
             background-color: #218838;
         }
+        .btn {
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .shadow-sm {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
     </style>
 </head>
 <body>
@@ -65,8 +79,19 @@
                 </tr>
             </table>
             <div class="text-center mt-4">
-                <a href="{% url 'warga-list' %}" class="btn btn-back px-4 py-2">← Kembali ke Daftar Warga</a>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="{% url 'warga-list' %}" class="btn btn-success px-4 py-2 shadow-sm">
+                        ← Kembali ke Daftar Warga
+                    </a>
+                    <a href="{% url 'warga-edit' warga.pk %}" class="btn btn-warning px-4 py-2 shadow-sm text-white">
+                        ✏️ Edit
+                    </a>
+                    <a href="{% url 'warga-hapus' warga.pk %}" class="btn btn-danger px-4 py-2 shadow-sm">
+                        🗑️ Hapus
+                    </a>
+                </div>
             </div>
+
             <hr>
             <h2>Daftar Pengaduan oleh {{ object.nama_lengkap }}</h2>
             <ul>
